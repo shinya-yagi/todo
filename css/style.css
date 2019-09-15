@@ -1,0 +1,67 @@
+body{
+    margin: 0 auto 0 auto;
+    max-width: 750px;
+}
+
+html{
+    font-family: sans-serif;
+}
+
+html * {
+    box-sizing: border-box;
+}
+
+h1{
+    color: #3f5170;
+    background-color: #eeece9;
+    text-align: center;
+    
+}
+
+a:link{
+    color: #d25333;
+}
+
+a:visited{
+    color: #d25333;
+}
+
+a:hover{
+    color: #e3937a;
+}
+
+a:active{
+    color: #ff6a3b;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+table td{
+    border:1px solid #bec2c7;
+}
+
+.left{
+    width: 600px;
+    text-align: left;
+}
+
+.right{
+    width: 150px;
+    text-align: center;
+}
+
+input[name="title"]{
+    width: 600px;
+    height: 30px;
+}
+
+input[name="description"]{
+    width: 600px;
+    height: 100px;
+}
+
+.delete{
+    text-align: right;
+}
