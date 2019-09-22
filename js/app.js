@@ -1,21 +1,15 @@
-//タスク新規作成
-$('#save').on('click', function() {
-    $.ajax({
-      url: 'https://samurai-yagi-todoapi.herokuapp.com/tasks',
-      method: 'POST',
-        data: {
-        "title": $('#title').val(),
-        "description": $('#description').val(),
-        "priority": $('select').val(),
-        }
-    });
-  });
+let getjson = window.localStorage.getItem('token');
+let obj = JSON.parse(getjson);
+// obj['キー1']などで取り出し可能に
 
 //タスク一覧を取得
 $(function(){
   $.ajax({
-      type : 'GET',
       url : 'https://samurai-yagi-todoapi.herokuapp.com/tasks',
+      method : 'GET',
+      "headers": {
+      "Authorization": obj['token'],
+    }, 
   }).done(function(data){
       if (data.tasks) {
         setData(data); 
@@ -43,3 +37,21 @@ $(function(){
      }
     }
 });
+
+//タスク新規作成
+$('#save').on('click', function() {
+    $.ajax({
+      url: 'https://samurai-yagi-todoapi.herokuapp.com/tasks',
+      method: 'POST',
+      data: {
+      "title": $('#title').val(),
+      "description": $('#description').val(),
+      "priority": $('select').val(),
+      },
+      "headers": {
+      "Authorization": obj['token'],
+    },
+      
+    });
+    window.location.href = 'index.html';
+  });
